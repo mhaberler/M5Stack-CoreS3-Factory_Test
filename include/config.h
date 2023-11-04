@@ -18,7 +18,7 @@
 #define SYS_I2C_SDA  12
 #define SYS_I2C_SCL  11
 
-#define EXT_I2C_PORT 0
+#define EXT_I2C_PORT I2C_NUM_0
 
 #define PORTA_PIN_0  1
 #define PORTA_PIN_1  2

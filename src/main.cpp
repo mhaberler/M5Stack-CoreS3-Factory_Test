@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <FFat.h>
 #include <Wire.h>
-#include <BLEDevice.h>
+// #include <BLEDevice.h>
 #include <nvs_flash.h>
 
 #include "config.h"
