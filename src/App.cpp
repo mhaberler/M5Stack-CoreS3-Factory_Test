@@ -60,7 +60,12 @@ void App_Init() {
     manager.Install("AppMic", "Pages/AppMic");
     manager.Install("AppPower", "Pages/AppPower");
     manager.Install("AppIMU", "Pages/AppIMU");
+    #ifdef USE_SD
     manager.Install("AppSD", "Pages/AppSD");
+    #endif
+    #ifdef USE_SDFAT
+    manager.Install("AppSdFat", "Pages/AppSdFat");
+    #endif
     manager.Install("AppTouch", "Pages/AppTouch");
     manager.Install("AppI2C", "Pages/AppI2C");
     manager.Install("AppRTC", "Pages/AppRTC");

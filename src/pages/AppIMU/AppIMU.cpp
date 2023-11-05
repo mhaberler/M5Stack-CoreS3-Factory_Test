@@ -143,8 +143,14 @@ void AppIMU::onEvent(lv_event_t* event) {
             if (obj == instance->View.ui.imgbtn_home) {
                 instance->_Manager->Replace("Pages/HomeMenu");
             } else if (obj == instance->View.ui.imgbtn_next) {
+#ifdef USE_SD
                 Serial.print("AppIMU -> AppSD\r\n");
                 instance->_Manager->Replace("Pages/AppSD");
+#endif
+#ifdef USE_SDFAT
+                Serial.print("AppIMU -> AppSdFat\r\n");
+                instance->_Manager->Replace("Pages/AppSdFat");
+#endif
             }
         }
     }

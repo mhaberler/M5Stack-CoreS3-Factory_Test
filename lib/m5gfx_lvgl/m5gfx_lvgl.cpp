@@ -1,4 +1,3 @@
-
 #include "m5gfx_lvgl.h"
 
 SemaphoreHandle_t xGuiSemaphore;
@@ -35,7 +34,6 @@ static void lvgl_tick_task(void *arg) {
 }
 
 void m5gfx_lvgl_init(void) {
-
     static lv_color_t *buf1 = (lv_color_t *)heap_caps_malloc(
         LCD_WIDTH * 80 * sizeof(lv_color_t), MALLOC_CAP_SPIRAM);
     static lv_color_t *buf2 = (lv_color_t *)heap_caps_malloc(

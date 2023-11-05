@@ -92,7 +92,8 @@ void HomeMenu::onEvent(lv_event_t* event) {
             return;
         }
         Serial.print("HomeMenu -> ");
-        M5.Speaker.playWav((const uint8_t*)ResourcePool::GetWav("select_0_5s"), ~0u, 1, 1);
+        M5.Speaker.playWav((const uint8_t*)ResourcePool::GetWav("select_0_5s"),
+                           ~0u, 1, 1);
         if (obj == instance->View.ui.imgbtn_list[0]) {
             Serial.println("AppWiFi");
             instance->_Manager->Replace("Pages/AppWiFi");
@@ -106,8 +107,14 @@ void HomeMenu::onEvent(lv_event_t* event) {
             Serial.println("AppIMU");
             instance->_Manager->Replace("Pages/AppIMU");
         } else if (obj == instance->View.ui.imgbtn_list[5]) {
+#ifdef USE_SD
             Serial.println("AppSD");
             instance->_Manager->Replace("Pages/AppSD");
+#endif
+#ifdef USE_SDFAT
+            Serial.println("AppSdFat");
+            instance->_Manager->Replace("Pages/AppSdFat");
+#endif
         } else if (obj == instance->View.ui.imgbtn_list[6]) {
             Serial.println("AppTouch");
             instance->_Manager->Replace("Pages/AppTouch");

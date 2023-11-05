@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <FFat.h>
 #include <Wire.h>
-// #include <BLEDevice.h>
+
 #include <nvs_flash.h>
 
 #include "config.h"
@@ -22,8 +22,11 @@ void setup() {
         ret = nvs_flash_init();
     }
 
-    Serial.begin(15200);
-    M5.begin();
+    auto cfg            = M5.config();
+    cfg.serial_baudrate = 115200;
+    cfg.led_brightness  = 192;
+    cfg.clear_display   = true;
+    M5.begin(cfg);
 
     // BM8563 Init (clear INT)
     M5.In_I2C.writeRegister8(0x51, 0x00, 0x00, 100000L);

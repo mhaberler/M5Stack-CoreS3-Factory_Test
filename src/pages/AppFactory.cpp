@@ -30,7 +30,12 @@
 #include "AppMic/AppMic.h"
 #include "AppPower/AppPower.h"
 #include "AppIMU/AppIMU.h"
+#ifdef USE_SD
 #include "AppSD/AppSD.h"
+#endif
+#ifdef USE_SDFAT
+#include "AppSdFat/AppSdFat.h"
+#endif
 #include "AppTouch/AppTouch.h"
 #include "AppI2C/AppI2C.h"
 #include "AppRTC/AppRTC.h"
@@ -51,7 +56,12 @@ PageBase* AppFactory::CreatePage(const char* name) {
     APP_CLASS_MATCH(AppMic);
     APP_CLASS_MATCH(AppPower);
     APP_CLASS_MATCH(AppIMU);
+#ifdef USE_SD
     APP_CLASS_MATCH(AppSD);
+#endif
+#ifdef USE_SDFAT
+    APP_CLASS_MATCH(AppSdFat);
+#endif
     APP_CLASS_MATCH(AppTouch);
     APP_CLASS_MATCH(AppI2C);
     APP_CLASS_MATCH(AppRTC);
