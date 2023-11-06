@@ -93,9 +93,9 @@ void AppSdFat::ListSDCard(SdFat& fs, const char* dirname, uint8_t levels) {
             file.getName(f_name, EXFAT_MAX_NAME_LENGTH);
 
             lv_label_set_text_fmt(label, "DIR: %-31.31s", f_name);
-            // if (levels) {
-            //     ListSDCard(fs, file.path(), levels - 1);
-            // }
+            if (levels) {
+                ListSDCard(fs, f_name, levels - 1);
+            }
         } else {
             lv_obj_t* label = lv_label_create(View.ui.file_list);
             file.getName(f_name, EXFAT_MAX_NAME_LENGTH);
