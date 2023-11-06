@@ -21,3 +21,24 @@ sdfat - uses [SdFat](https://registry.platformio.org/libraries/adafruit/SdFat%20
 - everything else seems to work
 
 NB arduino3 uses a modified M5GFX repo: 	https://github.com/mhaberler/M5GFX.git#arduino-3.0.0-improved
+
+## Webserver
+I added a standard Arduino Webserver as a load + interop test - works ok on 2 and 3
+
+uncomment -DWEBSERVER to enable
+
+credentials are taken from environment
+
+```
+	-DWIFI_SSID=\"${sysenv.WIFI_SSID}\"
+	-DWIFI_PASSWORD=\"${sysenv.WIFI_PASSWORD}\"
+``````
+
+## BLE scanning
+add https://github.com/h2zero/esp-nimble-cpp.git and setting up an basic scanner works great and simultaneously with WiFi on Arduino3
+
+uncomment -DTEST_NIMBLE to enable
+
+I tried https://github.com/h2zero/NimBLE-Arduino but that didnt work in the Arduino2 setup, unclear why
+
+dark screen (i.e no updates, eventual hang)
